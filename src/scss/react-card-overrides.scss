@@ -1,0 +1,9 @@
+@import "@material/card/mixins";
+
+.primary-card-color {
+  @include mdc-card-fill-color(white);
+}
+
+.card-size {
+  max-width: 20%;
+}
