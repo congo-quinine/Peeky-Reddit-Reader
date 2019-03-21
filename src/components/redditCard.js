@@ -7,33 +7,40 @@ import Card, {
   CardActionIcons
 } from "@material/react-card";
 
+let classNames = require('classnames');
+
+const cardStyle = classNames({
+  'mdc-card': true,
+  'mdc-card--outlined': true,
+  'card-size': true
+})
+
+const cardContentStyle = classNames({
+  'content-tab-size': true
+})
 
 class RedditCard extends Component {
 
   render(){
-
-    const cardStyle = classNames({
-      'card-size': true,
-      'primary-card-color': true
-    })
-
     return(
-      <Card className={cardStyle} >
-        <CardPrimaryContent className="">
-          <h1>Header</h1>
-          <CardMedia square imageUrl='./my/fancy/image.png' />
-        </CardPrimaryContent>
+      <div>
+      <Card className={cardStyle}>
+      <CardPrimaryContent>
+        <h3>{this.props.reddit.title}</h3>
+        <CardMedia square imageUrl={this.props.reddit.url} />
+      </CardPrimaryContent>
 
-        <CardActions>
-          <CardActionButtons>
-            <button>Click Me</button>
-          </CardActionButtons>
+      <CardActions>
+        <CardActionButtons>
+          <button>Click Me</button>
+        </CardActionButtons>
 
-          <CardActionIcons>
-            <i>Click Me Too!</i>
-          </CardActionIcons>
-        </CardActions>
-      </Card>
+        <CardActionIcons>
+          <i>Click Me Too!</i>
+        </CardActionIcons>
+      </CardActions>
+    </Card>
+    </div>
     )
   }
 

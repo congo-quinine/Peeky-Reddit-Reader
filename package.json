@@ -5,6 +5,9 @@
   "dependencies": {
     "@material/react-button": "^0.11.0",
     "@material/react-card": "^0.11.0",
+    "@material/react-material-icon": "^0.11.0",
+    "@material/react-top-app-bar": "^0.11.0",
+    "@material/top-app-bar": "^1.0.1",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "node-sass": "^4.11.0",
@@ -12,7 +15,8 @@
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

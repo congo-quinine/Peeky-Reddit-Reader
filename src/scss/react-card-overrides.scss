@@ -5,5 +5,14 @@
 }
 
 .card-size {
-  max-width: 20%;
+  margin: auto;
+  max-width: 600px;
+}
+
+.card-outline {
+  @include mdc-card-outline(black, 1px)
+}
+
+.card-shape {
+  @include mdc-card-shape-radius(5px, true)
 }
