@@ -3,16 +3,22 @@ import RedditCard from './redditCard.js';
 
 class RedditCards extends Component {
 
-  renderRedditCards = () => this.props.reddit.map( (reddit ) => <RedditCard reddit={reddit} /> )
+
+  renderRedditCards = () => this.props.reddit.redditFeedData.map( (reddit ) => <RedditCard reddit={reddit} /> )
+  renderSubRedditCards = () => this.props.reddit.subReddit.map( (reddit ) => <RedditCard reddit={reddit} /> )
 
   render(){
     return(
       <div>
-      {this.renderRedditCards()}
+      {
+        this.props.reddit.subsOn
+        ?this.renderSubRedditCards()
+        :this.renderRedditCards()
+      }
       </div>
     )
   }
-  
+
 };
 
 export default RedditCards;

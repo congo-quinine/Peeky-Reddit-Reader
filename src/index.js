@@ -8,6 +8,9 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/redditReducer.js'
 
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(

@@ -1,46 +1,34 @@
 import React, { Component } from 'react'
-import Card, {
-  CardPrimaryContent,
-  CardMedia,
-  CardActions,
-  CardActionButtons,
-  CardActionIcons
-} from "@material/react-card";
+import Card from 'react-bootstrap/Card'
 
-let classNames = require('classnames');
-
-const cardStyle = classNames({
-  'mdc-card': true,
-  'mdc-card--outlined': true,
-  'card-size': true
-})
-
-const cardContentStyle = classNames({
-  'content-tab-size': true
-})
 
 class RedditCard extends Component {
 
   render(){
+
+      const cardSize = {
+        width: '40%',
+        margin: 'auto',
+        marginTop: '20px'
+      }
+
     return(
       <div>
-      <Card className={cardStyle}>
-      <CardPrimaryContent>
-        <h3>{this.props.reddit.title}</h3>
-        <CardMedia square imageUrl={this.props.reddit.url} />
-      </CardPrimaryContent>
-
-      <CardActions>
-        <CardActionButtons>
-          <button>Click Me</button>
-        </CardActionButtons>
-
-        <CardActionIcons>
-          <i>Click Me Too!</i>
-        </CardActionIcons>
-      </CardActions>
-    </Card>
-    </div>
+      <Card style={cardSize}>
+        <Card.Body>
+          <Card.Title>{this.props.reddit.title}</Card.Title>
+          <Card.Text>
+          </Card.Text>
+        </Card.Body>
+        { this.props.reddit.url.length > 40
+          ?<a href={this.props.reddit.url}>{this.props.reddit.url}</a>
+          :<Card.Img variant="top" src={this.props.reddit.url} />
+        }
+        <Card.Footer>
+          <small className="text-muted">{this.props.reddit.subreddit}</small>
+        </Card.Footer>
+      </Card>
+      </div>
     )
   }
 
