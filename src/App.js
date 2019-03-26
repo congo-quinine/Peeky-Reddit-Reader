@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Button from '@material/react-button';
 import RedditContainer from './containers/redditContainer.js';
-import NavBarContainer from './containers/navBarContainer.js'
+import NavBarContainer from './containers/navBarContainer.js';
+import LoginContainer from './containers/loginContainer.js';
 
 class App extends Component {
 
@@ -10,6 +10,7 @@ class App extends Component {
       <div>
       <NavBarContainer />
       <RedditContainer />
+      <LoginContainer />
       </div>
     );
   }

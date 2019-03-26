@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import '../scss/App.css'
+import LoginWindow from './loginWindow.js'
 
 class TopNavBar extends Component {
 
@@ -18,11 +19,14 @@ class TopNavBar extends Component {
     })
   }
 
+  handleClick = () => <LoginWindow/>
 
+  handleHomeClick = () => this.props.refreshRedditHome()
 
   render(){
     const navTextColor = {
-      color: "white"
+      color: "white",
+      cursor: "pointer"
     }
     const navLogin = {
       color: "white",
@@ -31,16 +35,18 @@ class TopNavBar extends Component {
     }
     return(
       <Navbar bg="dark" sticky="top" >
-      <Navbar.Brand href="#home" style={navTextColor}>Peeky Reddit Reader</Navbar.Brand>
+      <Navbar.Brand href="" style={navTextColor} onClick={() => this.handleHomeClick()}>Peeky Reddit Reader</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
           <NavDropdown class='nav' title="Trending Subreddits" id="turd" onClick={() => this.onSubClick()}>
-            {this.getSubreddits()}
+            {
+              this.getSubreddits()
+            }
           </NavDropdown>
           </Navbar.Collapse>
-        <Nav style={navLogin}>
-        <Nav.Link onClick={() => { }} style={navLogin}>Login</Nav.Link>
-        </Nav>
+      <Nav style={navLogin}>
+        <Nav.Link onClick={() => this.handleClick()} style={navLogin}>Login</Nav.Link>
+      </Nav>
     </Navbar>
     )
   };

@@ -3,21 +3,22 @@ const redditReducer = (state = {
     subRedditsOn: false,
     navSubreddit: []
   }, action) => {
+    console.log(action)
     switch (action.type) {
       case "LOADING_REDDIT_DATA":
         return {...state, redditFeed: [...state.redditFeed], subs: [...state.redditFeed]}
       case "FETCH_REDDIT_DATA":
         return {redditFeed: action.payload}
       case "GET_SUBREDDIT":
-      let subReddit = state.redditFeed.filter( sub => sub.subreddit === action.sub)
+        let subReddit = state.redditFeed.filter( sub => sub.subreddit === action.sub)
         return { ...state, subs: subReddit, subRedditsOn: true }
       case "DISPLAY_SUBREDDITS":
-      let subs = []
-      state.redditFeed.forEach( (i) => subs.push(i.subreddit) )
-      subs = [...new Set(subs)];
-      return { ...state, navSubreddit: subs };
+        let subs = []
+        state.redditFeed.forEach( (i) => subs.push(i.subreddit) )
+        subs = [...new Set(subs)];
+        return { ...state, navSubreddit: subs };
       case "REFRESH":
-        return {...state, redditFeed: [...state.redditFeed]}
+        return {...state, redditFeed: [...state.redditFeed], subRedditsOn: false}
       default:
         return state;
     }

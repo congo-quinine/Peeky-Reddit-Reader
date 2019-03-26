@@ -1,6 +1,9 @@
 
 #turd{
-
   z-index: 1;
   color: white !important;
+}
+
+#bob{
+  width: 400px;
 }

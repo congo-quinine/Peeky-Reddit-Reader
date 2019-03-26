@@ -5,14 +5,14 @@ import TopNavBar from '../components/navbar.js';
 
 class NavBarContainer extends Component {
 
-  getSubreddit = (sub) => {
-    this.props.getSubreddit(sub)
-  }
+  getSubreddit = (sub) => this.props.getSubreddit(sub)
+
+  refreshRedditHome = () => this.props.refreshRedditHome()
 
   render(){
     return(
       <div>
-      <TopNavBar subreddits={this.props.subReddits} getSubreddit={this.getSubreddit} />
+      <TopNavBar subreddits={this.props.subReddits} getSubreddit={this.getSubreddit} refreshRedditHome={this.refreshRedditHome} />
       {console.log(this.props.subReddits)}
       </div>
     )
@@ -26,7 +26,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub})
+  return { getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
+           refreshRedditHome: () => dispatch({type: "REFRESH"})
    }
 }
 
