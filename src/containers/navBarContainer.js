@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import TopNavBar from '../components/navbar.js';
 
-
 class NavBarContainer extends Component {
 
   getSubreddit = (sub) => this.props.getSubreddit(sub)

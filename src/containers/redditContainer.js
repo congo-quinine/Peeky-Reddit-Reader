@@ -16,6 +16,7 @@ class RedditContainer extends Component {
 
 
     return(
+
       <div>
       <RedditCards reddit={this.props}/>
       </div>

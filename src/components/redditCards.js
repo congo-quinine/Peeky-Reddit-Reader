@@ -12,8 +12,8 @@ class RedditCards extends Component {
       <div>
       {
         this.props.reddit.subsOn
-        ?this.renderSubRedditCards()
-        :this.renderRedditCards()
+        ? this.renderSubRedditCards()
+        : this.renderRedditCards()
       }
       </div>
     )

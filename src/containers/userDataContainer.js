@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import LoginWindow from '../components/loginWindow.js'
+import { Route } from 'react-router-dom';
 
-class LoginContainer extends Component {
-  
+class UserDataContainer extends Component {
+
   render(){
     return(
-      <LoginWindow />
+      <div>
+        <LoginWindow />
+      </div>
     )
   }
 };
 
-export default LoginContainer;
+export default UserDataContainer;
