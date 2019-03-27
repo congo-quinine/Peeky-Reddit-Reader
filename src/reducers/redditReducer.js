@@ -1,7 +1,10 @@
 const redditReducer = (state = {
     redditFeed: [],
     subRedditsOn: false,
-    navSubreddit: []
+    navSubreddit: [],
+    userName: '',
+    email: '',
+    password: ''
   }, action) => {
     console.log(action)
     switch (action.type) {
