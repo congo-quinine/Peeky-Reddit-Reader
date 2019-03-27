@@ -28,7 +28,7 @@ class RedditCard extends Component {
               this.props.reddit.url.length > 40
               ?<Card.Text style={css.cardTextStyle}><a href={this.props.reddit.url} target="_blank">{this.props.reddit.url}></a></Card.Text>
               :<a href={this.props.reddit.url} target="_blank">
-              <Card.Img variant="" src={this.props.reddit.url} onError={ (e) => e.target.src=`${this.props.reddit.thumbnail}` }/></a>
+              <Card.Img variant="" src={this.props.reddit.url} onError={ (e) => {return e.target.src=`${this.props.reddit.thumbnail}`, e.target.style='width: 40%; height: 40%; margin: 0% 0% 0% 25%' }}/></a>
             }
           </Card.Body>
         <Card.Footer>

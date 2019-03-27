@@ -14,8 +14,9 @@ class TopNavBar extends Component {
   getSubreddits = () => this.state.subReddits.map( (sub) => <NavDropdown.Item href="" onClick={() => this.props.getSubreddit(sub)}>{sub}</NavDropdown.Item> )
 
   onSubClick = () => {
+    const sortedSubs = this.props.subreddits.sort()
     this.setState({
-      subReddits: this.props.subreddits.sort()
+      subReddits: sortedSubs
     })
   }
 
@@ -38,12 +39,12 @@ class TopNavBar extends Component {
       <Navbar.Brand href="" style={navTextColor} onClick={() => this.handleHomeClick()}>Peeky Reddit Reader</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-          <NavDropdown class='nav' title="Trending Subreddits" id="turd" onClick={() => this.onSubClick()}>
+        <NavDropdown class='nav' title="Trending Subreddits" id="navDropdown" onClick={() => this.onSubClick()}>
             {
               this.getSubreddits()
             }
-          </NavDropdown>
-          </Navbar.Collapse>
+        </NavDropdown>
+      </Navbar.Collapse>
       <Nav style={navLogin}>
         <Nav.Link onClick={() => this.handleClick()} style={navLogin}>Login</Nav.Link>
       </Nav>
