@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import CreateAccount from '../components/createAccount.js';
+import { postCreateAccount } from '../actions/postCreateAccount.js';
 
 class createAccountContainer extends Component {
 
@@ -23,6 +24,10 @@ class createAccountContainer extends Component {
     })
   }
 
+  sumbitCreateAccountData = () => {
+    this.props.createAccount(this.state)
+  }
+
   render(){
     return(
       <div>
@@ -31,10 +36,18 @@ class createAccountContainer extends Component {
         userNameData={this.state.userName}
         userEmailInput={this.userEmailInput}
         userEmailData={this.state.email}
+        sumbitCreateAccountData={this.sumbitCreateAccountData}
          />
       </div>
     )
   }
 };
 
-export default connect()(createAccountContainer);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createAccount: (data) => dispatch(postCreateAccount(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(createAccountContainer);

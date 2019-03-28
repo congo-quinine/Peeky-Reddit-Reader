@@ -47,7 +47,7 @@ class CreateAccount extends Component {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={() => this.props.sumbitCreateAccountData()}>
             Submit
           </Button>
         </Form>

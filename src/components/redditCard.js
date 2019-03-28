@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
+
 class RedditCard extends Component {
 
   render(){
@@ -20,7 +21,6 @@ class RedditCard extends Component {
 
 
     return(
-      <div>
       <Card bg="dark" text="white" style={css.cardSize}>
         <Card.Body>
           <Card.Title>{this.props.reddit.title}</Card.Title>
@@ -36,11 +36,10 @@ class RedditCard extends Component {
           </Card.Body>
         <Card.Footer>
           <small className="text-muted">r/{this.props.reddit.subreddit}</small>
-          <small style={css.floatRight} className="text-muted">Read Later</small>
+          <small style={css.floatRight} className="text-muted" onClick={() => this.props.addReadLater(this.props.reddit) }>Read Later</small>
           <small style={{float: 'right', paddingRight: '0.5%'}} className="text-muted">Subscribe ~</small>
         </Card.Footer>
       </Card>
-      </div>
     )
   }
 }

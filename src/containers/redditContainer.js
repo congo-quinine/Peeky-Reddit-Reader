@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchRedditData } from '../actions/fetchRedditDataAction.js';
 import TopNavBar from '../components/navbar.js';
 import SubReddits from '../components/navbar.js'
+import ReadLaterSideBar from '../components/readLaterSideBar.js';
 
 class RedditContainer extends Component {
 
@@ -12,28 +13,32 @@ class RedditContainer extends Component {
     this.props.fetchRedditData()
   }
 
+  addReadLater = (redditArticle) => this.props.getReadLater(redditArticle)
+
   render(){
-
-
     return(
-
       <div>
-      <RedditCards reddit={this.props}/>
+        <ReadLaterSideBar readLater={this.props.readLater} readLaterOn={this.props.readLaterOn}/>
+        <RedditCards reddit={this.props} addReadLater={this.addReadLater}/>
       </div>
     )
   }
 };
 
 const mapStateToProps = (state) => {
-  return {redditFeedData: state.redditFeed,
+  return {
+          redditFeedData: state.redditFeed,
           subsOn: state.subRedditsOn,
-          subReddit: state.subs
+          subReddit: state.subs,
+          readLater: state.readLater,
+          readLaterOn: state.readLaterOn
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {fetchRedditData: () => dispatch(fetchRedditData()),
-          getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub})
+          getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
+          getReadLater: data => dispatch({type: 'READ_LATER', data})
    }
 }
 

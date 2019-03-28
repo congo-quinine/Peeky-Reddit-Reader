@@ -4,6 +4,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import '../scss/App.css'
 import { Link } from 'react-router-dom';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 
 class TopNavBar extends Component {
@@ -36,20 +38,20 @@ class TopNavBar extends Component {
     }
 
     return(
-      <Navbar bg="dark" sticky="top" >
-        <Navbar.Brand href="" style={navTextColor} onClick={() => this.handleHomeClick()}><Link to="/" exact>Peeky Reddit Reader</Link></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <NavDropdown className='nav' title="Trending Subreddits" id="navDropdown" onClick={() => this.onSubClick()}>
-              {
-                this.getSubreddits()
-              }
-          </NavDropdown>
-        </Navbar.Collapse>
-        <Nav style={navLogin}>
-          <Nav.Link style={navLogin}><Link to="/login" exact>Login</Link></Nav.Link>
-        </Nav>
-      </Navbar>
+          <Navbar bg="dark">
+            <Navbar.Brand href="" style={navTextColor} onClick={() => this.handleHomeClick()}><Link to="/" exact>Peeky Reddit Reader</Link></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <NavDropdown className='nav' title="Trending Subreddits" id="navDropdown" onClick={() => this.onSubClick()}>
+                  {
+                    this.getSubreddits()
+                  }
+              </NavDropdown>
+            </Navbar.Collapse>
+            <Nav style={navLogin}>
+              <Nav.Link style={navLogin}><Link to="/login" exact>Login</Link></Nav.Link>
+            </Nav>
+          </Navbar>
     )
   };
 
