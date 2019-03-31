@@ -7,14 +7,14 @@ import { postCreateAccount } from '../actions/postCreateAccount.js';
 class createAccountContainer extends Component {
 
   state = {
-    userName: '',
+    username: '',
     email: '',
     password: ''
   }
 
   userNameInput = (data) => {
     this.setState({
-      userName: data
+      username: data
     })
   }
 
@@ -24,7 +24,14 @@ class createAccountContainer extends Component {
     })
   }
 
-  sumbitCreateAccountData = () => {
+  userPasswordInput = (data) => {
+    this.setState({
+      password: data
+    })
+  }
+
+  sumbitCreateAccountData = (e) => {
+    e.preventDefault()
     this.props.createAccount(this.state)
   }
 
@@ -33,9 +40,11 @@ class createAccountContainer extends Component {
       <div>
         <CreateAccount
         userNameInput={this.userNameInput}
-        userNameData={this.state.userName}
+        userNameData={this.state.username}
         userEmailInput={this.userEmailInput}
         userEmailData={this.state.email}
+        userPassword={this.state.password}
+        userPasswordInput={this.userPasswordInput}
         sumbitCreateAccountData={this.sumbitCreateAccountData}
          />
       </div>

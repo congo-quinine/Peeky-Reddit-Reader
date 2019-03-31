@@ -21,31 +21,30 @@ class LoginWindow extends Component {
       }
     }
     return (
-        <div>
+      <div>
 
-          <div style={css.h2Div}>
-            <h2>Peeky Reddit Reader Login</h2>
-            <p style={{paddingLeft: '70px'}}><Link to="/create">Don't have an account yet?</Link></p>
-          </div>
+        <div style={css.h2Div}>
+          <h2>Peeky Reddit Reader Login</h2>
+          <p><Link to="/create"> Don't have an account?</Link></p>
+        </div>
 
-        <Form style={css.formStyle}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+      <Form style={css.formStyle}>
+        <Form.Group controlId="userName">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="text" placeholder="Enter email" onChange={ (e) => this.props.userEmailInput(e.target.value)} value={this.props.userEmailData}/>
+        </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Enter passowrd" onChange={ (e) =>
+          this.props.userPasswordInput(e.target.value)} value={this.props.userPasswordData}/>
+        </Form.Group>
+
+        <Button variant="primary" type="submit" onClick={(e) => this.props.submitLoginData(e)}>
+          Submit
+        </Button>
+      </Form>
+    </div>
     )
   }
 };

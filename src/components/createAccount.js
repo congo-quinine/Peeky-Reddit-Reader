@@ -8,7 +8,6 @@ class CreateAccount extends Component {
   render(){
 
     const css = {
-
       h2Div: {
         width: '30%',
         margin: 'auto',
@@ -20,6 +19,7 @@ class CreateAccount extends Component {
         paddingTop: '10%'
       }
     }
+
     return (
         <div>
 
@@ -38,16 +38,15 @@ class CreateAccount extends Component {
             <Form.Control type="email" placeholder="Enter email" onChange={ (e) =>
             this.props.userEmailInput(e.target.value)} value={this.props.userEmailData}/>
             <Form.Text className="text-muted">
-              {console.log(this.props.userEmailData)}
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" onChange={ (e) => this.props.userPasswordInput(e.target.value)}/>
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={() => this.props.sumbitCreateAccountData()}>
+          <Button variant="primary" type="submit" onClick={(e) => this.props.sumbitCreateAccountData(e)}>
             Submit
           </Button>
         </Form>

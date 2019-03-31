@@ -4,9 +4,7 @@ const redditReducer = (state = {
     navSubreddit: [],
     readLater: [],
     readLaterOn: false,
-    userName: '',
-    email: '',
-    password: ''
+    loggedIn: false
   }, action) => {
     switch (action.type) {
       case "LOADING_REDDIT_DATA":
@@ -55,15 +53,16 @@ const redditReducer = (state = {
 
       case "CREATE_ACCOUNT":
         return {
-          userName: action.payload
+          username: action.payload
         }
 
       case "LOG_IN":
+      console.log(action.payload)
         return {
           ...state,
-          userName: state.userName
+          username: state.username,
+          loggedIn: true
         }
-
       default:
         return state;
     }

@@ -5,10 +5,10 @@ import { StickyContainer, Sticky } from 'react-sticky';
 class ReadLaterSideBar extends Component {
 
   renderRedditCards = () => this.props.readLater.map( (i) => <Sticky>{({ style }) =>
-        <Figure style={{ marginLeft: '20%', paddingTop: '10px' }}>
+        <Figure style={{ width: '50%', marginLeft: '20%', paddingTop: '10px' }}>
           <Figure.Image
-            width={171}
-            height={180}
+            width={200}
+            height={200}
             alt="171x180"
             src={i.url}
             onError={(e) => e.target.src=`${i.thumbnail}`
