@@ -3,8 +3,7 @@ const redditReducer = (state = {
     subRedditsOn: false,
     navSubreddit: [],
     readLater: [],
-    readLaterOn: false,
-    loggedIn: false
+    readLaterOn: false
   }, action) => {
     switch (action.type) {
       case "LOADING_REDDIT_DATA":
@@ -38,10 +37,23 @@ const redditReducer = (state = {
         }
 
       case "REFRESH":
+      console.log(state.redditFeed)
         return {
           ...state,
           redditFeed: [...state.redditFeed],
           subRedditsOn: false
+        }
+
+      case "LOADING_READ_LATER":
+        return {
+          ...state,
+          readLater: state.readLater
+        }
+
+      case "FETCH_READ_LATER":
+      console.log(action.payload)
+        return {
+          readLater: action.payload
         }
 
       case "READ_LATER":
@@ -51,18 +63,6 @@ const redditReducer = (state = {
           readLaterOn: true
         }
 
-      case "CREATE_ACCOUNT":
-        return {
-          username: action.payload
-        }
-
-      case "LOG_IN":
-      console.log(action.payload)
-        return {
-          ...state,
-          username: state.username,
-          loggedIn: true
-        }
       default:
         return state;
     }

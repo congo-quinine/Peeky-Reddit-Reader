@@ -12,5 +12,10 @@ export function postLogin(data){
         password: data.password
       })
     }).then(response => response.json())
-      .then(responseJSON => dispatch({type: "LOG_IN", payload: responseJSON.data.username }))
+      .then(responseJSON => {
+      if (responseJSON.message === "Success"){
+          return dispatch({type: "LOG_IN", payload: responseJSON.data.username })
+      }
+    }
+  )
 }}

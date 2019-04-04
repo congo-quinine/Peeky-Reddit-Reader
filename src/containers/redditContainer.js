@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import RedditCards from '../components/redditCards.js';
 import { connect } from 'react-redux';
 import { fetchRedditData } from '../actions/fetchRedditDataAction.js';
+import { postReadLaterArticle } from '../actions/postReadLaterArticle.js';
+
 import TopNavBar from '../components/navbar.js';
 import SubReddits from '../components/navbar.js'
 import ReadLaterSideBar from '../components/readLaterSideBar.js';
@@ -13,13 +15,15 @@ class RedditContainer extends Component {
     this.props.fetchRedditData()
   }
 
-  addReadLater = (redditArticle) => this.props.getReadLater(redditArticle)
+  addReadLater = (redditArticle) => this.props.addReadLater(redditArticle)
+
+  saveAddReadLater = (redditArticle) => this.props.saveAddReadLater(redditArticle)
 
   render(){
     return(
       <div>
         <ReadLaterSideBar readLater={this.props.readLater} readLaterOn={this.props.readLaterOn}/>
-        <RedditCards reddit={this.props} addReadLater={this.addReadLater}/>
+        <RedditCards reddit={this.props} addReadLater={this.saveAddReadLater} />
       </div>
     )
   }
@@ -38,8 +42,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {fetchRedditData: () => dispatch(fetchRedditData()),
           getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
-          getReadLater: data => dispatch({type: 'READ_LATER', data})
+          addReadLater: data => dispatch({type: 'READ_LATER', data}),
+          saveAddReadLater: data => dispatch(postReadLaterArticle(data))
    }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(RedditContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RedditContainer);

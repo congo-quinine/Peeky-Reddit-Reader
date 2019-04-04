@@ -51,7 +51,7 @@ class TopNavBar extends Component {
               </NavDropdown>
             </Navbar.Collapse>
             <Nav style={navLogin}>
-              <Nav.Link style={navLogin}><Link to="/login" exact style={navLogin}>Login</Link></Nav.Link>
+              <Nav.Link style={navLogin}><Link to="/read_later" exact style={navLogin}>Have a Peek</Link></Nav.Link>
             </Nav>
           </Navbar>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import TopNavBar from '../components/navbar.js';
+import { fetchRedditData } from '../actions/fetchRedditDataAction.js';
 
 class NavBarContainer extends Component {
 
@@ -12,7 +13,6 @@ class NavBarContainer extends Component {
     return(
       <div>
       <TopNavBar subreddits={this.props.subReddits} getSubreddit={this.getSubreddit} refreshRedditHome={this.refreshRedditHome} />
-      {console.log(this.props.subReddits)}
       </div>
     )
   }
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return { getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
-           refreshRedditHome: () => dispatch({type: "REFRESH"})
+           refreshRedditHome: () => dispatch(fetchRedditData())
    }
 }
 

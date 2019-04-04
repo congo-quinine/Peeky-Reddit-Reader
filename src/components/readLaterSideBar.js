@@ -26,11 +26,11 @@ class ReadLaterSideBar extends Component {
     return(
       <StickyContainer style={{ width: '25%', position: 'fixed', zIndex: 2}}>
       <div>
-      {
+      {/* {
         this.props.readLaterOn
         ? this.renderRedditCards()
         : console.log("works")
-      }
+      } */}
       </div>
       </StickyContainer>
     )

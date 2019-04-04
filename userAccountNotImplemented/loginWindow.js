@@ -25,7 +25,7 @@ class LoginWindow extends Component {
 
         <div style={css.h2Div}>
           <h2>Peeky Reddit Reader Login</h2>
-          <p><Link to="/create"> Don't have an account?</Link></p>
+          <p><Link to="/create">Don't have an account?</Link></p>
         </div>
 
       <Form style={css.formStyle}>
