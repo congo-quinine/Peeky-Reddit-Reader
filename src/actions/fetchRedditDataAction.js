@@ -4,6 +4,6 @@ export function fetchRedditData(){
     return  fetch('http://localhost:3000/api/v1/articles')
     .then(response => response.json())
     .then(responseJSON => dispatch({type: "FETCH_REDDIT_DATA", payload: responseJSON.data}))
-    .then( responseJSON => dispatch({type: "DISPLAY_SUBREDDITS", payload: responseJSON.data }))
+    .then(responseJSON => dispatch({type: "DISPLAY_SUBREDDITS", payload: responseJSON.data}))
   }
 }

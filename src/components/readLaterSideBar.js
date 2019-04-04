@@ -4,6 +4,8 @@ import { StickyContainer, Sticky } from 'react-sticky';
 
 class ReadLaterSideBar extends Component {
 
+
+
   renderRedditCards = () => this.props.readLater.map( (i) => <Sticky>{({ style }) =>
         <Figure style={{ width: '50%', marginLeft: '20%', paddingTop: '10px' }}>
           <Figure.Image
@@ -26,11 +28,12 @@ class ReadLaterSideBar extends Component {
     return(
       <StickyContainer style={{ width: '25%', position: 'fixed', zIndex: 2}}>
       <div>
-      {/* {
+      {
         this.props.readLaterOn
         ? this.renderRedditCards()
         : console.log("works")
-      } */}
+      }
+      {console.log(this.props)}
       </div>
       </StickyContainer>
     )

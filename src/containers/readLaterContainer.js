@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MyReadLater from '../components/myReadLater.js';
 import { connect } from 'react-redux';
 import {fetchReadLater} from '../actions/fetchReadLater.js'
+import {deleteReadLater} from '../actions/deleteReadLater.js'
 
 class ReadLaterContainer extends Component {
 
@@ -9,10 +10,15 @@ class ReadLaterContainer extends Component {
     this.props.getReadLater()
   }
 
+  deleteReadLater = (data) => {
+    this.props.deleteReadLater(data)
+  }
+
   render(){
     return(
       <div>
-        <MyReadLater readLater={this.props.readLater} />
+      {console.log(this.props.readLater)}
+        <MyReadLater readLater={this.props.readLater} deleteReadLater={this.deleteReadLater}/>
       </div>
     )
   }
@@ -26,7 +32,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getReadLater: () => dispatch(fetchReadLater())
+    getReadLater: () => dispatch(fetchReadLater()),
+    deleteReadLater: (data) => dispatch(deleteReadLater(data))
   }
 }
 

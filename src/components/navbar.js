@@ -40,7 +40,7 @@ class TopNavBar extends Component {
     return(
           <Navbar bg="dark">
             <Navbar.Brand href=""
-              onClick={() => this.handleHomeClick()}><Link to="/" exact style={navTextColor}>Peek-It</Link>
+              onClick={() => this.handleHomeClick()}><Link to="/home" exact style={navTextColor}>Peek-It</Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

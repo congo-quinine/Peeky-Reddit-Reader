@@ -10,7 +10,7 @@ const redditReducer = (state = {
         return {
           ...state,
           redditFeed: [...state.redditFeed],
-          subs: [...state.redditFeed]
+          subs: []
           }
 
       case "FETCH_REDDIT_DATA":
@@ -37,7 +37,6 @@ const redditReducer = (state = {
         }
 
       case "REFRESH":
-      console.log(state.redditFeed)
         return {
           ...state,
           redditFeed: [...state.redditFeed],
@@ -51,17 +50,24 @@ const redditReducer = (state = {
         }
 
       case "FETCH_READ_LATER":
-      console.log(action.payload)
         return {
+          ...state,
           readLater: action.payload
         }
 
       case "READ_LATER":
         return {
           ...state,
-          readLater: [...state.readLater, action.data],
+          readLater: [...state.readLater],
           readLaterOn: true
         }
+
+        case "DELETE_READ_LATER":
+        let readLater = state.readLater.filter((i) => i.url !== action.payload)
+          return {
+            ...state,
+            readLater: readLater
+          }
 
       default:
         return state;

@@ -36,8 +36,8 @@ class RedditCard extends Component {
           </Card.Body>
         <Card.Footer>
           <small className="text-muted">r/{this.props.reddit.subreddit}</small>
-          <small style={css.floatRight} className="text-muted" onClick={() => this.props.addReadLater(this.props.reddit) }>Read Later</small>
-          <small style={{float: 'right', paddingRight: '0.5%'}} className="text-muted">Subscribe ~</small>
+          <small style={css.floatRight} className="text-muted" onClick={ () => this.props.addReadLater(this.props.reddit)}>Read Later</small>
+          <small style={{float: 'right', paddingRight: '0.5%'}} className="text-muted"></small>
         </Card.Footer>
       </Card>
     )

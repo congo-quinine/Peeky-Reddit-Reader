@@ -7,26 +7,28 @@ class MyReadLater extends Component {
 
 
   renderReadLaterCards = () => this.props.readLater.map( (i) =>
+      <div>
         <Figure style={{ width: '50%', marginLeft: '20%', paddingTop: '10px' }}>
+          <p onClick={() => this.props.deleteReadLater(i.url)}>Delete</p>
           <Figure.Image
             width={200}
             height={200}
             alt="171x180"
             src={i.url}
-            onError={(e) => e.target.src=`${i.thumbnail}`
+            onError={(e) => e.target.src=`http://www.avtlens.com/wp-content/uploads/2018/10/type-article.png`
           }
           />
           <Figure.Caption>
             <a target="_blank" href={i.url}>{i.title}</a>
           </Figure.Caption>
         </Figure>
-        )
+      </div>
+      )
 
   render(){
     return(
       <div>
       <Jumbotron>
-      {console.log(this.props)}
         <h1>Welcome Reddit Reader!</h1>
         <p>
           You have {this.props.readLater.length} articles to read.
@@ -36,11 +38,9 @@ class MyReadLater extends Component {
         </p>
       </Jumbotron>
 
-      <div>
+      <div style={{width: '80%'}}>
         {this.renderReadLaterCards()}
-        {console.log(this.props.readLater)}
       </div>
-
       </div>
     )
   }

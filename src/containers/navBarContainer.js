@@ -12,21 +12,22 @@ class NavBarContainer extends Component {
   render(){
     return(
       <div>
-      <TopNavBar subreddits={this.props.subReddits} getSubreddit={this.getSubreddit} refreshRedditHome={this.refreshRedditHome} />
+        <TopNavBar subreddits={this.props.subReddits} getSubreddit={this.getSubreddit} refreshRedditHome={this.refreshRedditHome} />
       </div>
     )
   }
-
 };
 
 const mapStateToProps = (state) => {
-  return { subReddits: state.navSubreddit
+  return {
+    subReddits: state.navSubreddit
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
-           refreshRedditHome: () => dispatch(fetchRedditData())
+  return {
+    getSubreddit: sub => dispatch({type: 'GET_SUBREDDIT', sub}),
+    refreshRedditHome: () => dispatch({type: "REFRESH"})
    }
 }
 
