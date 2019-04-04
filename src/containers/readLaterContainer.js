@@ -17,7 +17,6 @@ class ReadLaterContainer extends Component {
   render(){
     return(
       <div>
-      {console.log(this.props.readLater)}
         <MyReadLater readLater={this.props.readLater} deleteReadLater={this.deleteReadLater}/>
       </div>
     )

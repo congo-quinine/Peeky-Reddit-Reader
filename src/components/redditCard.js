@@ -15,10 +15,10 @@ class RedditCard extends Component {
             padding: '10px'
           },
           floatRight:{
-            float: "right"
+            float: "right",
+            cursor: "pointer"
           }
         }
-
 
     return(
       <Card bg="dark" text="white" style={css.cardSize}>

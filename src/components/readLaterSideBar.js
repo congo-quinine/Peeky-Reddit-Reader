@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Figure from 'react-bootstrap/Figure'
 import { StickyContainer, Sticky } from 'react-sticky';
+import '../scss/App.css'
 
 class ReadLaterSideBar extends Component {
 
@@ -27,13 +28,12 @@ class ReadLaterSideBar extends Component {
   render(){
     return(
       <StickyContainer style={{ width: '25%', position: 'fixed', zIndex: 2}}>
-      <div>
-      {
-        this.props.readLaterOn
-        ? this.renderRedditCards()
-        : console.log("works")
+      <div id="fadeDiv">
+        {
+          this.props.readLater === ""
+          ? <p> Click Read Later to save an article </p>
+          : <p> {this.props.readLater} has been added to your saved articles.</p>
       }
-      {console.log(this.props)}
       </div>
       </StickyContainer>
     )

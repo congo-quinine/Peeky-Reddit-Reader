@@ -13,7 +13,7 @@ class TopNavBar extends Component {
   }
 
   getSubreddits = () => this.state.subReddits.map( (sub) =>
-    <NavDropdown.Item onClick={() => this.props.getSubreddit(sub)}>{sub}</NavDropdown.Item>)
+    <NavDropdown.Item key={Math.random()} onClick={() => this.props.getSubreddit(sub)}>{sub}</NavDropdown.Item>)
 
   onSubClick = () => {
     let sortedSubs = this.props.subreddits.sort()

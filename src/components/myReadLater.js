@@ -9,7 +9,7 @@ class MyReadLater extends Component {
   renderReadLaterCards = () => this.props.readLater.map( (i) =>
       <div>
         <Figure style={{ width: '50%', marginLeft: '20%', paddingTop: '10px' }}>
-          <p onClick={() => this.props.deleteReadLater(i.url)}>Delete</p>
+          <p style={{cursor: 'pointer', color: "red"}} onClick={() => this.props.deleteReadLater(i.url)}>X</p>
           <Figure.Image
             width={200}
             height={200}
@@ -30,12 +30,11 @@ class MyReadLater extends Component {
       <div>
       <Jumbotron>
         <h1>Welcome Reddit Reader!</h1>
-        <p>
-          You have {this.props.readLater.length} articles to read.
-        </p>
-        <p>
-          <Button variant="primary">Sort By</Button>
-        </p>
+        {
+          this.props.readLater.length > 0
+          ? <p>You have {this.props.readLater.length} articles to read.</p>
+          : <p>You have no articles saved. Go check out the front page!</p>
+        }
       </Jumbotron>
 
       <div style={{width: '80%'}}>
