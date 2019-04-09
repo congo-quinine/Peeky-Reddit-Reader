@@ -44,7 +44,6 @@ const redditReducer = (state = {
         }
 
       case "LOADING_READ_LATER":
-      console.log(action)
         return {
           ...state,
           readLater: state.readLater

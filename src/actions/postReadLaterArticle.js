@@ -16,7 +16,6 @@ export function postReadLaterArticle(data){
     .then(responseJSON => {
       if (responseJSON.data === "success"){
         alert("Article Saved")
-        return dispatch({type: "READ_LATER"})
       }else if (responseJSON.data === "saved already") {
         alert("You already have this article Saved")
       }
