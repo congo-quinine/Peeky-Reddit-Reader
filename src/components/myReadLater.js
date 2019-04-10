@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
 
 class MyReadLater extends Component {
@@ -8,7 +7,7 @@ class MyReadLater extends Component {
 
   renderReadLaterCards = () => this.props.readLater.map( (i) =>
       <div>
-        <Figure style={{ width: '50%', marginLeft: '20%', paddingTop: '10px' }}>
+        <Figure style={{width: '50%', marginLeft: '40%', paddingTop: '20px'}}>
           <p style={{cursor: 'pointer', color: "red"}} onClick={() => this.props.deleteReadLater(i.url)}>X</p>
           <Figure.Image
             width={200}
@@ -19,7 +18,7 @@ class MyReadLater extends Component {
           }
           />
           <Figure.Caption>
-            <a target="_blank" href={i.url}>{i.title}</a>
+            <a target="_blank" rel="noopener noreferrer" href={i.url}>{i.title}</a>
           </Figure.Caption>
         </Figure>
       </div>
@@ -29,11 +28,11 @@ class MyReadLater extends Component {
     return(
       <div>
       <Jumbotron>
-        <h1>Welcome Reddit Reader!</h1>
+        <h1>Welcome To Your Read Later!</h1>
         {
           this.props.readLater.length > 0
-          ? <p>You have {this.props.readLater.length} articles to read.</p>
-          : <p>You have no articles saved. Go check out the front page!</p>
+          ? <p>You have {this.props.readLater.length} article(s) to read.</p>
+          : <p>You have no reddit articles saved. Go check out the front page!</p>
         }
       </Jumbotron>
 

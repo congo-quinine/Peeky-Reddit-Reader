@@ -3,7 +3,7 @@ import RedditContainer from './containers/redditContainer.js';
 import NavBarContainer from './containers/navBarContainer.js';
 import ReadLaterContainer from './containers/readLaterContainer.js';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
 

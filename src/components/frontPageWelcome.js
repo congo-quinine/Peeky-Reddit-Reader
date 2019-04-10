@@ -7,7 +7,12 @@ class frontPageWelcome extends Component {
     return(
       <div>
       <Jumbotron>
-        <h1>Welcome Reddit Reader!</h1>
+        {
+          this.props.subredditTitle
+          ? <h1>Welcome to {this.props.subredditTitle[0].subreddit}</h1>
+          : <h1>Welcome Reddit Reader!</h1>
+        }
+        <p> </p>
       </Jumbotron>
       </div>
     )

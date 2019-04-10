@@ -4,7 +4,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import '../scss/App.css'
 import { Link } from 'react-router-dom';
-import { StickyContainer, Sticky } from 'react-sticky';
 
 class TopNavBar extends Component {
 
@@ -40,7 +39,7 @@ class TopNavBar extends Component {
     return(
           <Navbar bg="dark">
             <Navbar.Brand href=""
-              onClick={() => this.handleHomeClick()}><Link to="/home" exact style={navTextColor}>Peek-It</Link>
+              onClick={() => this.handleHomeClick()}><Link to="/home" style={navTextColor}>Peek-It</Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -51,7 +50,7 @@ class TopNavBar extends Component {
               </NavDropdown>
             </Navbar.Collapse>
             <Nav style={navLogin}>
-              <Nav.Link style={navLogin}><Link to="/read_later" exact style={navLogin}>Have a Peek</Link></Nav.Link>
+              <Link to="/read_later" style={navLogin}>Your Read Later</Link>
             </Nav>
           </Navbar>
     )

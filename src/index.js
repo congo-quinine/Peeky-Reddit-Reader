@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/redditReducer.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import { BrowserRouter as Router, Route, LInk } from 'react-router-dom';
 
 let store = createStore(rootReducer, applyMiddleware(thunk))
 

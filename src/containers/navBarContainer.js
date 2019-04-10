@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import TopNavBar from '../components/navbar.js';
-import { fetchRedditData } from '../actions/fetchRedditDataAction.js';
 
 class NavBarContainer extends Component {
 
@@ -32,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps) (NavBarContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);

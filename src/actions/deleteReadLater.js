@@ -1,7 +1,6 @@
 export function deleteReadLater(data){
-  console.log(data)
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/v1/create",{
+    return fetch("http://localhost:3000/api/v1/reads",{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
