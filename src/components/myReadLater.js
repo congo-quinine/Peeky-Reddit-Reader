@@ -1,27 +1,24 @@
 import React, { Component } from 'react'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Figure from 'react-bootstrap/Figure'
+import ReadLaterCards from '../components/readLaterCards.js'
 
 class MyReadLater extends Component {
 
+  state = {
+    likes: 0
+  }
+
+
+  handleOnClick = () => {
+    this.setState({
+      likes: this.state.likes += 1
+    })
+
+  }
 
   renderReadLaterCards = () => this.props.readLater.map( (i) =>
-      <div>
-        <Figure style={{width: '50%', marginLeft: '40%', paddingTop: '20px'}}>
-          <p style={{cursor: 'pointer', color: "red"}} onClick={() => this.props.deleteReadLater(i.url)}>X</p>
-          <Figure.Image
-            width={200}
-            height={200}
-            alt="171x180"
-            src={i.url}
-            onError={(e) => e.target.src=`http://www.avtlens.com/wp-content/uploads/2018/10/type-article.png`
-          }
-          />
-          <Figure.Caption>
-            <a target="_blank" rel="noopener noreferrer" href={i.url}>{i.title}</a>
-          </Figure.Caption>
-        </Figure>
-      </div>
+      <ReadLaterCards data={i} />
       )
 
   render(){

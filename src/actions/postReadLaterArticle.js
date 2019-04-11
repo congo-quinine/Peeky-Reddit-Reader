@@ -1,5 +1,5 @@
 export function postReadLaterArticle(data){
-  console.log(data)
+  console.log('C')
   return (dispatch) => {
     return fetch("http://localhost:3000/api/v1/reads",{
       method: "POST",
@@ -14,6 +14,7 @@ export function postReadLaterArticle(data){
     })
     .then(response => response.json())
     .then(responseJSON => {
+      console.log('D')
       if (responseJSON.data === "success"){
         alert("Article Saved")
       }else if (responseJSON.data === "saved already") {
@@ -21,4 +22,5 @@ export function postReadLaterArticle(data){
       }
     })
   }
+  console.log('E')
 }

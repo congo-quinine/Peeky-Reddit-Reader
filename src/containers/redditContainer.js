@@ -19,7 +19,9 @@ class RedditContainer extends Component {
 
 
   saveAddReadLater = (redditArticle) => {
+    console.log('A')
     this.props.saveAddReadLater(redditArticle)
+    console.log('B')
     this.setState({
       readLater: redditArticle.title
     })
